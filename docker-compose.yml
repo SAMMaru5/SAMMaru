@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - 3309:3306
+    cap_add:
+      - SYS_NICE
+    environment:
+      - MYSQL_DATABASE=sammaru
+      - MYSQL_ROOT_PASSWORD=sammaru
+      - MYSQL_USER=sammaru
+      - MYSQL_PASSWORD=sammaru
+
+  spring-boot:
+    restart: always
+    image: spring-boot
+    build:
+      context: ./SAMMaruServer
+    ports:
+      - 8080:8080
+    volumes:
+      - springdata:/usr/src:rw
+      - ./SAMMaruServer/:/SAMMaruServer/
+    depends_on:
+      - mysql
+
+  react:
+    build:
+      context: ./SAMMaruClient
+    command: ["npm", "start"]
+    ports:
+      - 3000:3000
+    volumes:
+      - ./SAMMaruClient/:/SAMMaruClient
+      - ./SAMMaruClient/node_modules/:/SAMMaruClient/node_modules
+    environment:
+      - CI=true
+      - CHOKIDAR_USEPOLLING=true
+    tty: true
+
+volumes:
+  dbdata:
+  springdata:
