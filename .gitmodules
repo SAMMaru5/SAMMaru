@@ -1,0 +1,6 @@
+[submodule "SAMMaruClient"]
+	path = SAMMaruClient
+	url = https://github.com/SAMMaru5/SAMMaruClient.git
+[submodule "SAMMaruServer"]
+	path = SAMMaruServer
+	url = https://github.com/SAMMaru5/SAMMaruServer.git
