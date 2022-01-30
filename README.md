@@ -16,15 +16,15 @@ SAMMaru Repository <br>
     ```
 2. 서브 모듈 클론
     ```shell
-    $ cd SoTong
-    SoTong$ git clone https://github.com/SAMMaru5/SAMMaruClient.git
-    SoTong$ git clone https://github.com/SAMMaru5/SAMMaruServer.git
+    $ cd SAMMaru
+    SAMMaru$ git clone https://github.com/SAMMaru5/SAMMaruClient.git
+    SAMMaru$ git clone https://github.com/SAMMaru5/SAMMaruServer.git
     ```
     or
     ```shell
-    $ cd SoTong
-    $ git submodule init
-    $ git submodule update
+    $ cd SAMMaru
+    SAMMaru$ git submodule init
+    SAMMaru$ git submodule update
     ```
 3. 리액트 npm 패키지 설치
     ```shell
