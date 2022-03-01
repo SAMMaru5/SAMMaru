@@ -1,6 +1,19 @@
 version: '3'
 
 services:
+
+  redis:
+    build:
+      context: ./redis
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./redis/redis.conf:/etc/redis/redis.conf
+      - ./redis/data:/var/lib/redis/
+      - ./redis/logs:/var/log/redis/
+    ports:
+      - 6379:6379
+
   mysql:
     image: mysql:latest
     restart: always
@@ -28,6 +41,7 @@ services:
       - ./SAMMaruServer/:/SAMMaruServer/
     depends_on:
       - mysql
+      - redis
 
   react:
     build:
