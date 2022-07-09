@@ -1,5 +1,6 @@
 # SAMMaru
-SAMMaru Repository <br>
+SAMMaru 동아리 홈페이지 리뉴얼 프로젝트입니다.
+<br>
 [Client Repository](https://github.com/SAMMaru5/SAMMaruClient) <br>
 [Server Repository](https://github.com/SAMMaru5/SAMMaruServer)
 
