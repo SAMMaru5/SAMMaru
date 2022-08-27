@@ -1,7 +1,6 @@
-version: '3'
+version: "3"
 
 services:
-
   redis:
     build:
       context: ./redis
@@ -30,15 +29,12 @@ services:
       - MYSQL_PASSWORD=sammaru
 
   spring-boot:
-    restart: always
-    image: spring-boot
+    # restart: always
     build:
       context: ./SAMMaruServer
+      dockerfile: Dockerfile
     ports:
       - 8080:8080
-    volumes:
-      - springdata:/usr/src:rw
-      - ./SAMMaruServer/:/SAMMaruServer/
     depends_on:
       - mysql
       - redis
