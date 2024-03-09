@@ -25,6 +25,7 @@ services:
     network_mode: host
     volumes:
       - /home/sammaru/SAMMaruFiles:/app/files
+      - /home/sammaru/SAMMaruLog:/app/log
 
   react:
     restart: always
